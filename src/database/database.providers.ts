@@ -12,7 +12,8 @@ const providers = [
         password: process.env.DB_PASSWORD,
         database: process.env.DB_DATABASE,
         port: +process.env.DB_PORT,
-        dialect: 'postgres'
+        dialect: 'postgres',
+        logging: false
       });
       sequelize.addModels([User]);
       await sequelize.sync();

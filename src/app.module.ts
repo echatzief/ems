@@ -4,8 +4,6 @@ import { ConfigModule } from '@nestjs/config';
 import { UserModule } from '@/src/user/user.module';
 import { AuthModule } from '@/src/auth/auth.module';
 
-
-
 @Module({
   imports: [
     ConfigModule.forRoot({ isGlobal: true }),
@@ -15,4 +13,4 @@ import { AuthModule } from '@/src/auth/auth.module';
   ],
   providers: [],
 })
-export class AppModule {}
+export class AppModule { }

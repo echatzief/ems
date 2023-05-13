@@ -43,7 +43,7 @@ export class AuthService {
   }
 
 
-  private async generateToken(user) {
+  public async generateToken(user) {
     const token = await this.jwtService.signAsync(user, {
       secret: process.env.JWT_KEY,
       expiresIn: process.env.TOKEN_EXPIRATION
@@ -51,7 +51,7 @@ export class AuthService {
     return token;
   }
 
-  private async comparePassword(enteredPassword, dbPassword) {
+  public async comparePassword(enteredPassword, dbPassword) {
     const match = await bcrypt.compare(enteredPassword, dbPassword);
     return match;
   }

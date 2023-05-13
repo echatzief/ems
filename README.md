@@ -1,39 +1,20 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
-
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
-
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
-
 ## Description
+-----
+Employee Management System (EMS) using NestJS as the backend framework. It implements authentication using JWT tokens, PassportJS and role-based authorization using NestJS Casl library. The system supports three roles: Admin, Manager, and Employee.
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
-
-## Installation
-
+## Setup
+-----
+Spin up Postgres Database with docker
+```bash
+$ docker-compose up -d --build
+```
+Install dependencies
 ```bash
 $ npm install
 ```
 
-## Running the app
-
+## Run the app
+-----
 ```bash
 # development
 $ npm run start
@@ -46,7 +27,7 @@ $ npm run start:prod
 ```
 
 ## Test
-
+-----
 ```bash
 # unit tests
 $ npm run test
@@ -58,16 +39,63 @@ $ npm run test:e2e
 $ npm run test:cov
 ```
 
-## Support
+## Endpoints
+-----
+Register a user: **POST** /api/v1/auth/register
+```
+{
+    "email": "test@gmail.com",
+    "password":"1234",
+    "firstName":"123",
+    "lastName": "1234",
+    "role": "Admin"
+}
+```
+-----
+Login: **POST** /api/v1/auth/login
+```
+{
+    "email": "test@gmail.com",
+    "password":"1234",
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+}
+```
+-----
+Get a user: **GET** /api/v1/user/:id
 
-## Stay in touch
+-----
+Get all users: **GET** /api/v1/user/all
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).
+-----
+Create a user: **POST** /api/v1/user
+```
+{
+    "email": "test33333@gmail.com",
+    "password":"1234",
+    "firstName":"123",
+    "lastName": "1234",
+    "role": "Admin"
+}
+```
+-----
+Update a user: **PUT** /api/v1/user/:id
+```
+{
+    "email": "test33333@gmail.com",
+    "password":"1234",
+    "firstName":"123",
+    "lastName": "1234",
+    "role": "Admin"
+}
+```
+-----
+Delete a user: **DELETE** /api/v1/user/:id
+```
+{
+    "email": "test33333@gmail.com",
+    "password":"1234",
+    "firstName":"123",
+    "lastName": "1234",
+    "role": "Admin"
+}
+```
