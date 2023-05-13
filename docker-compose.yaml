@@ -1,0 +1,16 @@
+version: '3.8'
+services:
+  ems-db:
+    container_name: ems-db
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: ems-db
+    volumes:
+      - ems-db-volume:/data/postgres
+    ports:
+      - "8888:5432"
+volumes:
+  ems-db-volume:
+    driver: local
